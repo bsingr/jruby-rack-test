@@ -6,7 +6,7 @@ class ApplesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @apples }
+      format.json { render :json => @apples }
     end
   end
 
@@ -17,7 +17,7 @@ class ApplesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @apple }
+      format.json { render :json => @apple }
     end
   end
 
@@ -28,7 +28,7 @@ class ApplesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @apple }
+      format.json { render :json => @apple }
     end
   end
 
@@ -44,11 +44,11 @@ class ApplesController < ApplicationController
 
     respond_to do |format|
       if @apple.save
-        format.html { redirect_to @apple, notice: 'Apple was successfully created.' }
-        format.json { render json: @apple, status: :created, location: @apple }
+        format.html { redirect_to @apple, :notice => 'Apple was successfully created.' }
+        format.json { render :json => @apple, :status => :created, :location => @apple }
       else
-        format.html { render action: "new" }
-        format.json { render json: @apple.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @apple.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -60,11 +60,11 @@ class ApplesController < ApplicationController
 
     respond_to do |format|
       if @apple.update_attributes(params[:apple])
-        format.html { redirect_to @apple, notice: 'Apple was successfully updated.' }
+        format.html { redirect_to @apple, :notice => 'Apple was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @apple.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @apple.errors, :status => :unprocessable_entity }
       end
     end
   end
